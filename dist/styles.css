@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --header-bg: #34d399;
+  --header-text-main: #f8fafc;
+
+  --main-text: #111827;
+  --sidebar-bg: #e2e8f0;
+
+  --section-bg: #f1f5f9;
+
+  --todo-bg: #e2e8f0;
+  --todo-border: #64748b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* header styles  */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: auto;
+  padding: 0px 50px;
+  background-color: var(--header-bg);
+  color: var(--header-text-main);
+}
+
+.logoEffect {
+  border-bottom: 3px solid var(--header-text-main);
+}
+
+/* main styles */
+main {
+  display: flex;
+  color: var(--main-text);
+}
+/* sidebar styles */
+aside {
+  min-height: calc(100vh - 70px);
+  min-width: 240px;
+  width: 20%;
+  background-color: var(--sidebar-bg);
+  padding: 20px 25px;
+}
+
+aside h2 {
+  text-align: center;
+}
+
+aside ul {
+  list-style: none;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+aside ul li:not(.selected):hover::before {
+  opacity: 0.3;
+}
+
+aside ul li:hover::before,
+.selected::before {
+  content: ">";
+  position: absolute;
+  left: 13px;
+  font-size: 1.1rem;
+}
+
+aside ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* todo content styles  */
+.todoContainer {
+  flex: 1;
+  min-height: calc(100vh - 70px);
+  background-color: var(--section-bg);
+  padding: 20px 50px;
+}
+
+section h2 {
+  text-align: center;
+}
+
+.todoList {
+  min-width: 550px;
+  max-width: 75%;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 3px solid var(--todo-border);
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: var(--todo-bg);
+  transition: all ease-out 0.3s;
+}
+
+.completed {
+  border: 3px solid var(--header-bg);
+  text-decoration: line-through;
+}
+
+.todoItem:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.todoTexts {
+  max-width: 75%;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* custom checkbox styles */
+input[type="checkbox"] {
+  appearance: none;
+  margin: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 0.2rem solid var(--todo-border);
+  border-radius: 7px;
+  display: grid;
+  place-content: center;
+  transition: all ease-out 0.3s;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  transform: scale(0);
+  transition: all ease-out 0.3s;
+  box-shadow: inset 1.3rem 1.3rem var(--header-bg);
+  border-radius: 3px;
+}
+
+input[type="checkbox"]:checked {
+  border: 0.2rem solid var(--header-bg);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}

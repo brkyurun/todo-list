@@ -5,8 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MaybeDo</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="shortcut icon" href="../src/favicon.png" type="image/x-icon" />
   </head>
   <body>
-    <script src="./main.js" defer></script>
+    <header>
+      <div class="logoContainer">
+        <h1 class="logo">Maybe<span class="logoEffect">Do</span></h1>
+      </div>
+      <div class="projectContainer">
+        <h2 class="currentProject">Adelaide Ltd. & Co.</h2>
+      </div>
+    </header>
+    <main>
+      <aside>
+        <h2>Projects</h2>
+        <div class="projectsContainer" id="projectsContainer">
+          <ul id="projectsList">
+            <li class="projectName selected">Adelaide Ltd. & Co.</li>
+            <li class="projectName">Lemon Squeeze</li>
+            <li class="projectName">Barbecue Party</li>
+            <li class="projectName">Work from Home</li>
+          </ul>
+        </div>
+      </aside>
+      <section class="todoContainer">
+        <h2>To Do</h2>
+        <div class="todoList">
+          <div class="todoItem">
+            <div class="todoTexts">
+              <h3>Title 1</h3>
+              <p>Henlo 1</p>
+            </div>
+            <div class="dueDate">
+              <input type="date" name="duedate" class="timeInput" />
+            </div>
+            <div class="completionCheck">
+              <input
+                type="checkbox"
+                name="completioncheck"
+                class="checkboxInput"
+              />
+            </div>
+          </div>
+          <div class="todoItem">
+            <div class="todoTexts">
+              <h3>Title 2</h3>
+              <p>
+                Henlo 2 but with longer texts to measure the actions I need to
+                take in order to fix the width and put a container so that it
+                doesn't overflow from the design I made
+              </p>
+            </div>
+            <div class="dueDate">
+              <input type="date" name="duedate" class="timeInput" />
+            </div>
+            <div class="completionCheck">
+              <input
+                type="checkbox"
+                name="completioncheck"
+                class="checkboxInput"
+              />
+            </div>
+          </div>
+          <div class="todoItem">
+            <div class="todoTexts">
+              <h3>Title 3</h3>
+              <p>Henlo 3</p>
+            </div>
+            <div class="dueDate">
+              <input type="date" name="duedate" class="timeInput" />
+            </div>
+            <div class="completionCheck">
+              <input
+                type="checkbox"
+                name="completioncheck"
+                class="checkboxInput"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>
