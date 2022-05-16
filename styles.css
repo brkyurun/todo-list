@@ -10,7 +10,12 @@
   --section-bg: #f1f5f9;
 
   --todo-bg: #e2e8f0;
-  --todo-border: #64748b;
+  --todo-border-normal: #64748b;
+  --todo-border-medium: #f59e0b;
+  --todo-border-urgent: #ea580c;
+
+  --footer-bg: #34d399;
+  --footer-text: #f8fafc;
 }
 
 * {
@@ -72,8 +77,34 @@ aside ul li:hover::before,
   font-size: 1.1rem;
 }
 
-aside ul li:not(:last-child) {
+aside ul div:not(:last-child) {
   margin-bottom: 10px;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.removeProject {
+  display: grid;
+  place-content: center;
+  margin-left: 5px;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #64748b;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  transition: all ease-out 0.2s;
+}
+
+.removeProject:hover {
+  transform: scale(1.15);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 /* todo content styles  */
@@ -96,15 +127,39 @@ section h2 {
 }
 
 .todoItem {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  border: 3px solid var(--todo-border);
+  border: 3px solid var(--todo-border-normal);
   border-radius: 10px;
   padding: 10px 20px;
   background-color: var(--todo-bg);
   transition: all ease-out 0.3s;
+}
+
+.closeBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -12px;
+  right: -12px;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+  background-color: #ea580c;
+  color: #f8fafc;
+  font-weight: bolder;
+  font-size: 1.6rem;
+  transition: all ease-out 0.2s;
+}
+
+.closeBtn:hover {
+  transform: scale(1.15);
 }
 
 .completed {
@@ -122,13 +177,34 @@ section h2 {
   flex: 1;
 }
 
+.todoTexts:where(.low) > h3::after {
+  content: "< ! >";
+  font-weight: lighter;
+  opacity: 0.4;
+  margin-left: 5px;
+}
+
+.todoTexts:where(.medium) > h3::after {
+  content: "< !! >";
+  font-weight: lighter;
+  opacity: 0.4;
+  margin-left: 5px;
+}
+
+.todoTexts:where(.high) > h3::after {
+  content: "< !!! >";
+  font-weight: lighter;
+  opacity: 0.4;
+  margin-left: 5px;
+}
+
 /* custom checkbox styles */
 input[type="checkbox"] {
   appearance: none;
   margin: 0;
   width: 1.7rem;
   height: 1.7rem;
-  border: 0.2rem solid var(--todo-border);
+  border: 0.2rem solid var(--todo-border-normal);
   border-radius: 7px;
   display: grid;
   place-content: center;
@@ -151,4 +227,33 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"]:checked::before {
   transform: scale(1);
+}
+
+/* footer styles */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: 40px;
+  width: 100%;
+  background-color: var(--footer-bg);
+}
+
+footer > img {
+  height: 25px;
+  width: 25px;
+}
+
+footer > a,
+footer > a:visited {
+  color: var(--footer-text);
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all ease-in 0.2s;
+}
+
+footer > a:hover {
+  text-decoration: underline;
 }
