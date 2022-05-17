@@ -7,6 +7,13 @@
   --main-text: #111827;
   --sidebar-bg: #e2e8f0;
 
+  --modal-bg: #e2e8f0;
+  --modal-title: #34d399;
+  --modal-text: #111827;
+  --modal-button-open: #34d399;
+  --modal-button-close: #ea580c;
+  --modal-button-text: #f1f5f9;
+
   --section-bg: #f1f5f9;
 
   --todo-bg: #e2e8f0;
@@ -26,7 +33,7 @@
 }
 
 /* header styles  */
-header {
+header:not(.modalHeader) {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,6 +46,49 @@ header {
 
 .logoEffect {
   border-bottom: 3px solid var(--header-text-main);
+}
+
+/* modal styles */
+button.openModal {
+  position: fixed;
+  right: 45px;
+  bottom: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--modal-button-open);
+  color: var(--modal-button-text);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 2.5rem;
+  transition: transform ease-out 0.2s, font-size ease-out 0.4s;
+}
+
+button.openModal:hover {
+  transform: scale(1.1);
+  font-size: 3.3rem;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  background-color: var(--modal-bg);
+  width: 450px;
+  text-align: center;
 }
 
 /* main styles */
@@ -230,7 +280,7 @@ input[type="checkbox"]:checked::before {
 }
 
 /* footer styles */
-footer {
+footer:not(.modalFooter) {
   display: flex;
   align-items: center;
   justify-content: center;

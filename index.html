@@ -106,5 +106,34 @@
       <img src="../src/GitHub-Mark-Light-32px.png" alt="GitHub Logo." />
       <a href="https://github.com/brkyurun">brkyurun</a>
     </footer>
+    <button type="button" id="openModal" class="openModal">+</button>
+    <div class="modalContainer" id="modalContainer">
+      <div class="modal">
+        <h1>Add a task</h1>
+        <form action="#">
+          <div class="modalElementContainer">
+            <label for="todoTitle">What to do? : </label>
+            <input type="text" name="todoTitle" id="todoTitle" required />
+          </div>
+          <div class="modalElementContainer">
+            <label for="todoPriority">How important is it? : </label>
+            <select name="todoPriority" id="todoPriority">
+              <option value="low">Not Much</option>
+              <option value="medium">Somewhat Important</option>
+              <option value="high">Very Important</option>
+            </select>
+          </div>
+          <div class="modalElementContainer">
+            <label for="todoDate">When is it due? : </label>
+            <input type="date" name="todoDate" id="todoDate" />
+          </div>
+          <div class="modalElementContainer">
+            <label for="todoDescription">Any details? : </label>
+            <textarea name="todoDescription" id="todoDescription"></textarea>
+          </div>
+        </form>
+        <button type="button" id="closeModal" class="closeModal">Close</button>
+      </div>
+    </div>
   </body>
 </html>
