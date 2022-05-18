@@ -45,7 +45,7 @@
         <h2>To Do</h2>
         <div class="todoList">
           <div class="todoItem">
-            <button type="button" class="closeBtn">-</button>
+            <button type="button" class="removeTodo">-</button>
             <div class="todoTexts">
               <h3>Title 1</h3>
               <p>Henlo 1</p>
@@ -62,7 +62,7 @@
             </div>
           </div>
           <div class="todoItem">
-            <button type="button" class="closeBtn">-</button>
+            <button type="button" class="removeTodo">-</button>
             <div class="todoTexts">
               <h3>Title 2</h3>
               <p>
@@ -83,7 +83,7 @@
             </div>
           </div>
           <div class="todoItem">
-            <button type="button" class="closeBtn">-</button>
+            <button type="button" class="removeTodo">-</button>
             <div class="todoTexts">
               <h3>Title 3</h3>
               <p>Henlo 3</p>
@@ -131,9 +131,32 @@
             <label for="todoDescription">Any details? : </label>
             <textarea name="todoDescription" id="todoDescription"></textarea>
           </div>
+          <div class="modalButtonGroup">
+            <button type="button" id="submitModal" class="submitModal">
+              Add
+            </button>
+            <button type="button" id="closeModal" class="closeModal">
+              Close
+            </button>
+          </div>
         </form>
-        <button type="button" id="closeModal" class="closeModal">Close</button>
       </div>
     </div>
+    <script>
+      const openModal = document.querySelector(".openModal");
+      const modal = document.querySelector(".modalContainer");
+      const closeModal = document.querySelector(".closeModal");
+
+      openModal.addEventListener("click", () => modal.classList.add("show"));
+      closeModal.addEventListener("click", () =>
+        modal.classList.remove("show")
+      );
+
+      window.addEventListener("keydown", (e) => {
+        if (modal.classList.contains("show") && e.key === "Escape") {
+          modal.classList.remove("show");
+        }
+      });
+    </script>
   </body>
 </html>
