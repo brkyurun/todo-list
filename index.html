@@ -9,14 +9,6 @@
     <link rel="shortcut icon" href="../src/favicon.png" type="image/x-icon" />
   </head>
   <body>
-    <header>
-      <div class="logoContainer">
-        <h1 class="logo">Maybe<span class="logoEffect">Do</span></h1>
-      </div>
-      <div class="projectContainer">
-        <h2 class="currentProject">Adelaide Ltd. & Co.</h2>
-      </div>
-    </header>
     <main>
       <aside>
         <h2>Projects</h2>
@@ -142,21 +134,5 @@
         </form>
       </div>
     </div>
-    <script>
-      const openModal = document.querySelector(".openModal");
-      const modal = document.querySelector(".modalContainer");
-      const closeModal = document.querySelector(".closeModal");
-
-      openModal.addEventListener("click", () => modal.classList.add("show"));
-      closeModal.addEventListener("click", () =>
-        modal.classList.remove("show")
-      );
-
-      window.addEventListener("keydown", (e) => {
-        if (modal.classList.contains("show") && e.key === "Escape") {
-          modal.classList.remove("show");
-        }
-      });
-    </script>
   </body>
 </html>
