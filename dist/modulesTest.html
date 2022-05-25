@@ -10,29 +10,6 @@
   </head>
   <body>
     <main>
-      <aside>
-        <h2>Projects</h2>
-        <div class="projectsContainer" id="projectsContainer">
-          <ul id="projectsList">
-            <div class="project">
-              <li class="projectName selected">Adelaide Ltd. & Co.</li>
-              <button type="button" class="removeProject">-</button>
-            </div>
-            <div class="project">
-              <li class="projectName">Lemon Squeeze</li>
-              <button type="button" class="removeProject">-</button>
-            </div>
-            <div class="project">
-              <li class="projectName">Barbecue Party</li>
-              <button type="button" class="removeProject">-</button>
-            </div>
-            <div class="project">
-              <li class="projectName">Work from Home</li>
-              <button type="button" class="removeProject">-</button>
-            </div>
-          </ul>
-        </div>
-      </aside>
       <section class="todoContainer">
         <h2>To Do</h2>
         <div class="todoList">
@@ -98,41 +75,5 @@
       <img src="../src/GitHub-Mark-Light-32px.png" alt="GitHub Logo." />
       <a href="https://github.com/brkyurun">brkyurun</a>
     </footer>
-    <button type="button" id="openModal" class="openModal">+</button>
-    <div class="modalContainer" id="modalContainer">
-      <div class="modal">
-        <h1>Add a task</h1>
-        <form action="#">
-          <div class="modalElementContainer">
-            <label for="todoTitle">What to do? : </label>
-            <input type="text" name="todoTitle" id="todoTitle" required />
-          </div>
-          <div class="modalElementContainer">
-            <label for="todoPriority">How important is it? : </label>
-            <select name="todoPriority" id="todoPriority">
-              <option value="low">Not Much</option>
-              <option value="medium">Somewhat Important</option>
-              <option value="high">Very Important</option>
-            </select>
-          </div>
-          <div class="modalElementContainer">
-            <label for="todoDate">When is it due? : </label>
-            <input type="date" name="todoDate" id="todoDate" />
-          </div>
-          <div class="modalElementContainer">
-            <label for="todoDescription">Any details? : </label>
-            <textarea name="todoDescription" id="todoDescription"></textarea>
-          </div>
-          <div class="modalButtonGroup">
-            <button type="button" id="submitModal" class="submitModal">
-              Add
-            </button>
-            <button type="button" id="closeModal" class="closeModal">
-              Close
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
   </body>
 </html>
