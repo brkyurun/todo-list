@@ -151,4 +151,11 @@ function attachListeners() {
   });
 }
 
-export { createOpenModalButton, createModal, attachListeners };
+function loadModalElements() {
+  const body = document.querySelector("body");
+
+  body.appendChild(createOpenModalButton());
+  body.appendChild(createModal());
+}
+
+export { loadModalElements, attachListeners };

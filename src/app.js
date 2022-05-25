@@ -1,14 +1,7 @@
-import createHeader from "./modules/Header";
-import {
-  createOpenModalButton,
-  createModal,
-  attachListeners,
-} from "./modules/Modal";
+import loadHeader from "./ui_components/Header";
+import { loadModalElements, attachListeners } from "./ui_components/Modal";
 
-const body = document.querySelector("body");
-
-createHeader();
-body.appendChild(createOpenModalButton());
-body.appendChild(createModal());
+loadHeader();
+loadModalElements();
 
 window.addEventListener("DOMContentLoaded", attachListeners);

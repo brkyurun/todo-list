@@ -29,13 +29,11 @@ function createProjectContainer() {
   return projectContainer;
 }
 
-export default function createHeader() {
+export default function loadHeader() {
   const header = document.createElement("header");
   const body = document.querySelector("body");
 
   header.appendChild(createLogoContainer());
   header.appendChild(createProjectContainer());
   body.appendChild(header);
-
-  return header;
 }
