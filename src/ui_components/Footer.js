@@ -1,12 +1,14 @@
+import ghlogo from "./img/githublogo.png";
+
 function createFooter() {
   const footer = document.createElement("footer");
   const githubLogo = document.createElement("img");
   const profileLink = document.createElement("a");
 
-  githubLogo.src = "";
+  githubLogo.src = ghlogo;
   githubLogo.alt = "GitHub Logo";
 
-  profileLink.href = "https://github.com/brkyurun";
+  profileLink.href = `https://github.com/brkyurun`;
   profileLink.textContent = "brkyurun";
 
   footer.appendChild(githubLogo);
