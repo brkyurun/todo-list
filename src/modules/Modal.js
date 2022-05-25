@@ -20,7 +20,6 @@ function createModal() {
 
   modal.classList.add("modal");
   modalTitle.textContent = "Add a task";
-  formElement.action = "#";
 
   formElement.appendChild(
     createModalElementContainer(
@@ -56,7 +55,6 @@ function createModal() {
   modal.appendChild(formElement);
   modalContainer.appendChild(modal);
 
-  attachListeners();
   return modalContainer;
 }
 
@@ -153,4 +151,4 @@ function attachListeners() {
   });
 }
 
-export { createOpenModalButton, createModal };
+export { createOpenModalButton, createModal, attachListeners };
