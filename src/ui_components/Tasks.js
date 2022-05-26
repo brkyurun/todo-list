@@ -1,3 +1,5 @@
+import Task from "../logic/TaskController";
+
 function createTodoItem(title, details) {
   const todoItem = document.createElement("div");
   const removeTodoButton = document.createElement("button");

@@ -6,23 +6,23 @@ export default class Task {
     this.details = details;
   }
 
-  setName(name) {
+  static setName(name) {
     this.name = name;
   }
 
-  getName() {
+  static getName() {
     return this.name;
   }
 
-  setDate(dueDate) {
+  static setDate(dueDate) {
     this.dueDate = dueDate;
   }
 
-  getDate() {
+  static getDate() {
     return this.dueDate;
   }
 
-  getStringDate() {
+  static getStringDate() {
     const day = this.dueDate.split("/")[0];
     const month = this.dueDate.split("/")[1];
     const year = this.dueDate.split("/")[2];
@@ -30,19 +30,19 @@ export default class Task {
     return `${day}/${month}/${year}`;
   }
 
-  setPriority(priority) {
+  static setPriority(priority) {
     this.priority = priority;
   }
 
-  getPriority() {
+  static getPriority() {
     return this.priority;
   }
 
-  setDetails(details) {
+  static setDetails(details) {
     this.details = details;
   }
 
-  getDetails() {
+  static getDetails() {
     return this.details;
   }
 }
