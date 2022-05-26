@@ -36,7 +36,7 @@ function createProjectsList() {
   return projectsContainer;
 }
 
-function createSidebar() {
+export default function createSidebar() {
   const aside = document.createElement("aside");
   const title = document.createElement("h2");
 
@@ -46,10 +46,4 @@ function createSidebar() {
   aside.appendChild(createProjectsList());
 
   return aside;
-}
-
-export default function loadProjects() {
-  const body = document.querySelector("body");
-
-  body.appendChild(createSidebar());
 }
