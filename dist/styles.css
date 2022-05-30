@@ -17,10 +17,10 @@
 
   --section-bg: #f1f5f9;
 
-  --todo-bg: #e2e8f0;
-  --todo-border-normal: #64748b;
-  --todo-border-medium: #f59e0b;
-  --todo-border-urgent: #ea580c;
+  --task-bg: #e2e8f0;
+  --task-border-normal: #64748b;
+  --task-border-medium: #f59e0b;
+  --task-border-urgent: #ea580c;
 
   --footer-bg: #34d399;
   --footer-text: #f8fafc;
@@ -34,7 +34,7 @@
 }
 
 /* header styles  */
-header:not(.modalHeader) {
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,12 +45,12 @@ header:not(.modalHeader) {
   color: var(--header-text-main);
 }
 
-.logoEffect {
+.logo-effect {
   border-bottom: 3px solid var(--header-text-main);
 }
 
 /* modal styles */
-button.openModal {
+button.open-modal {
   position: fixed;
   right: 45px;
   bottom: 45px;
@@ -69,12 +69,12 @@ button.openModal {
   transition: transform ease-out 0.2s, font-size ease-out 0.4s;
 }
 
-button.openModal:hover {
+button.open-modal:hover {
   transform: scale(1.1);
   font-size: 3.3rem;
 }
 
-.modalContainer {
+.modal-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -89,7 +89,7 @@ button.openModal:hover {
   transition: opacity ease-out 0.25s;
 }
 
-.modalContainer.show {
+.modal-container.show {
   pointer-events: auto;
   opacity: 1;
 }
@@ -104,7 +104,7 @@ button.openModal:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modalElementContainer {
+.modal-element-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 5px;
@@ -113,9 +113,9 @@ button.openModal:hover {
   font-size: 1.2rem;
 }
 
-.modalElementContainer input,
-.modalElementContainer select,
-.modalElementContainer textarea {
+.modal-element-container input,
+.modal-element-container select,
+.modal-element-container textarea {
   outline: transparent;
   border: none;
   width: auto;
@@ -126,22 +126,27 @@ button.openModal:hover {
   background-color: #f8fafcc7;
 }
 
-.modalElementContainer input:focus,
-.modalElementContainer select:focus,
-.modalElementContainer textarea:focus {
+.modal-element-container textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.modal-element-container input:focus,
+.modal-element-container select:focus,
+.modal-element-container textarea:focus {
   outline: transparent;
   border: 2px solid var(--modal-button-open);
 }
 
-.modalButtonGroup {
+.modal-button-group {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin-top: 20px;
 }
 
-.submitModal,
-.closeModal {
+.submit-modal,
+.close-modal {
   cursor: pointer;
   border: none;
   padding: 10px 20px;
@@ -155,23 +160,23 @@ button.openModal:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.closeModal {
+.close-modal {
   background-color: var(--modal-button-close);
 }
 
-.submitModal:hover,
-.closeModal:hover {
+.submit-modal:hover,
+.close-modal:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
 }
 
 /* main styles */
-main {
+.main {
   display: flex;
   color: var(--main-text);
 }
 /* sidebar styles */
-aside {
+.sidebar {
   min-height: calc(100vh - 70px);
   min-width: 240px;
   width: 20%;
@@ -179,29 +184,28 @@ aside {
   padding: 20px 25px;
 }
 
-aside h2 {
+.sidebar h2 {
   text-align: center;
 }
 
-aside ul {
-  list-style: none;
-  font-size: 1.1rem;
+.projects-container {
+  /* font-size: 1.1rem; */
   margin-top: 20px;
 }
 
-aside ul li:not(.selected):hover::before {
+.sidebar .project:not(.selected):hover::before {
   opacity: 0.3;
 }
 
-aside ul li:hover::before,
+.sidebar .project:hover::before,
 .selected::before {
   content: ">";
   position: absolute;
   left: 13px;
-  font-size: 1.1rem;
+  /* font-size: 1.1rem; */
 }
 
-aside ul div:not(:last-child) {
+.sidebar .project:not(:last-child) {
   margin-bottom: 10px;
 }
 
@@ -211,7 +215,7 @@ aside ul div:not(:last-child) {
   justify-content: space-between;
 }
 
-.removeProject {
+.remove-project {
   display: grid;
   place-content: center;
   margin-left: 5px;
@@ -226,44 +230,44 @@ aside ul div:not(:last-child) {
   transition: all ease-out 0.2s;
 }
 
-.removeProject:hover {
+.remove-project:hover {
   transform: scale(1.15);
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-/* todo content styles  */
-.todoContainer {
+/* task content styles  */
+.task-container {
   flex: 1;
   min-height: calc(100vh - 70px);
   background-color: var(--section-bg);
   padding: 20px 50px;
 }
 
-section h2 {
+.task-container h2 {
   text-align: center;
 }
 
-.todoList {
+.task-list {
   min-width: 550px;
   max-width: 75%;
   margin: auto;
   margin-top: 15px;
 }
 
-.todoItem {
+.task-item {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  border: 3px solid var(--todo-border-normal);
+  border: 3px solid var(--task-border-normal);
   border-radius: 10px;
   padding: 10px 20px;
-  background-color: var(--todo-bg);
+  background-color: var(--task-bg);
   transition: all ease-out 0.3s;
 }
 
-.removeTodo {
+.remove-task {
   position: absolute;
   display: flex;
   align-items: center;
@@ -282,7 +286,7 @@ section h2 {
   transition: all ease-out 0.2s;
 }
 
-.removeTodo:hover {
+.remove-task:hover {
   transform: scale(1.15);
 }
 
@@ -291,31 +295,31 @@ section h2 {
   text-decoration: line-through;
 }
 
-.todoItem:not(:last-child) {
+.task-item:not(:last-child) {
   margin-bottom: 15px;
 }
 
-.todoTexts {
+.task-texts {
   max-width: 75%;
   line-height: 1.5;
   flex: 1;
 }
 
-.todoTexts:where(.low) > h3::after {
+.task-texts:where(.low) > h3::after {
   content: "< ! >";
   font-weight: lighter;
   opacity: 0.4;
   margin-left: 5px;
 }
 
-.todoTexts:where(.medium) > h3::after {
+.task-texts:where(.medium) > h3::after {
   content: "< !! >";
   font-weight: lighter;
   opacity: 0.4;
   margin-left: 5px;
 }
 
-.todoTexts:where(.high) > h3::after {
+.task-texts:where(.high) > h3::after {
   content: "< !!! >";
   font-weight: lighter;
   opacity: 0.4;
@@ -328,7 +332,7 @@ input[type="checkbox"] {
   margin: 0;
   width: 1.7rem;
   height: 1.7rem;
-  border: 0.2rem solid var(--todo-border-normal);
+  border: 0.2rem solid var(--task-border-normal);
   border-radius: 7px;
   display: grid;
   place-content: center;
@@ -354,7 +358,7 @@ input[type="checkbox"]:checked::before {
 }
 
 /* footer styles */
-footer:not(.modalFooter) {
+footer:not(.modal-footer) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,9 +387,9 @@ footer > a:hover {
 }
 
 /* input focus reset */
-button.openModal:focus,
-button.removeProject:focus,
-button.removeTodo:focus {
+button.open-modal:focus,
+button.remove-project:focus,
+button.remove-task:focus {
   border: none;
   outline: none;
 }
