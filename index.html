@@ -5,10 +5,129 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MaybeDo</title>
-    <link rel="stylesheet" href="./main.css" />
-    <link rel="shortcut icon" href="../src/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
   </head>
   <body>
+    <header class="header-top">
+      <div class="logo-container">
+        <h1>Maybe<span class="logo-effect">Do</span></h1>
+      </div>
+      <div class="project-container">
+        <h2 class="current-project">Adelaide Ltd. & Co.</h2>
+      </div>
+    </header>
+    <main class="main">
+      <aside class="sidebar">
+        <h2>Projects</h2>
+        <div class="projects-container" id="projects-container">
+          <div class="project selected">
+            <p class="project-name">Adelaide Ltd. & Co.</p>
+            <button class="remove-project">-</button>
+          </div>
+          <div class="project">
+            <p class="project-name">Lemon Squeeze</p>
+            <button class="remove-project">-</button>
+          </div>
+          <div class="project">
+            <p class="project-name">Barbecue Party</p>
+            <button class="remove-project">-</button>
+          </div>
+          <div class="project">
+            <p class="project-name">Work from Home</p>
+            <button class="remove-project">-</button>
+          </div>
+        </div>
+      </aside>
+      <section class="task-container">
+        <h2>Tasks</h2>
+        <div class="task-list">
+          <div class="task-item">
+            <button type="button" class="remove-task">-</button>
+            <div class="task-texts">
+              <h3>Title 1</h3>
+              <p>Henlo 1</p>
+            </div>
+            <div class="due-date">
+              <input type="date" class="time-input" />
+            </div>
+            <div class="completion-check">
+              <input type="checkbox" class="checkbox-input" />
+            </div>
+          </div>
+          <div class="task-item">
+            <button type="button" class="remove-task">-</button>
+            <div class="task-texts">
+              <h3>Title 2</h3>
+              <p>
+                Henlo 2 but with longer texts to measure the actions I need to
+                take in order to fix the width and put a container so that it
+                doesn't overflow from the design I made
+              </p>
+            </div>
+            <div class="due-date">
+              <input type="date" class="time-input" />
+            </div>
+            <div class="completion-check">
+              <input type="checkbox" class="checkbox-input" />
+            </div>
+          </div>
+          <div class="task-item">
+            <button type="button" class="remove-task">-</button>
+            <div class="task-texts">
+              <h3>Title 3</h3>
+              <p>Henlo 3</p>
+            </div>
+            <div class="due-date">
+              <input type="date" class="time-input" />
+            </div>
+            <div class="completion-check">
+              <input type="checkbox" class="checkbox-input" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <img src="./assets/GitHub-Mark-Light-32px.png" alt="GitHub logo." />
+      <a href="https://github.com/brkyurun">brkyurun</a>
+    </footer>
+    <button type="button" id="open-modal" class="open-modal">+</button>
+    <div id="modal-container" class="modal-container">
+      <div class="modal">
+        <h1>Add a task</h1>
+        <form>
+          <div class="modal-element-container">
+            <label for="task-title">What to do? : </label>
+            <input type="text" name="task-title" id="task-title" />
+          </div>
+          <div class="modal-element-container">
+            <label for="task-priority">How important is it? : </label>
+            <select id="task-priority">
+              <option value="low">Not much</option>
+              <option value="medium">Somewhat important</option>
+              <option value="high">Very important</option>
+            </select>
+          </div>
+          <div class="modal-element-container">
+            <label for="task-date">When is it due? : </label>
+            <input type="date" id="task-date" />
+          </div>
+          <div class="modal-element-container">
+            <label for="task-description">Any details? : </label>
+            <textarea id="task-description"></textarea>
+          </div>
+          <div class="modal-button-group">
+            <button type="button" id="submit-modal" class="submit-modal">
+              Add
+            </button>
+            <button type="button" id="close-modal" class="close-modal">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
