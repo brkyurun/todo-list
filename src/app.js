@@ -1,22 +1,33 @@
-const openModal = document.querySelector("#open-modal");
-const modal = document.querySelector("#modal-container");
-const closeModal = document.querySelector("#close-modal");
-const textArea = document.querySelector("#task-description");
+import Project from "./ProjectController";
+import Task from "./TaskController";
+import UI from "./UI";
 
-openModal.addEventListener("click", () => modal.classList.add("show"));
-closeModal.addEventListener("click", () => modal.classList.remove("show"));
+UI.attachListeners();
 
-window.addEventListener("keydown", (e) => {
-  if (modal.classList.contains("show") && e.key === "Escape") {
-    modal.classList.remove("show");
-  }
-});
+const testProject = new Project("Test");
+const testTask = new Task("Henlo 4", "low", "23/07/2022", "very secret stuff");
+const testTaskSecond = new Task(
+  "Henlo 5",
+  "low",
+  "23/07/2023",
+  "very secret stuff"
+);
+const testTaskThird = new Task(
+  "Henlo 6",
+  "low",
+  "23/07/2024",
+  "very secret stuff"
+);
 
-textArea.addEventListener("input", resizeArea);
-
-function resizeArea() {
-  this.style.height = this.scrollHeight + "px";
-}
+testProject.addTask(testTask);
+testProject.addTask(testTaskSecond);
+testProject.addTask(testTaskThird);
+console.log(testProject.getName());
+console.log(testProject.getTasks());
+UI.createTask(testTask);
+UI.createTask(testTaskSecond);
+UI.createTask(testTaskThird);
+UI.createProject(testProject.getName());
 
 // todos:
 // - create new ui components to create projects and tasks

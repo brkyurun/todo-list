@@ -4,15 +4,19 @@ export default class Project {
     this.tasks = [];
   }
 
-  static setName(name) {
+  setName(name) {
     this.name = name;
   }
 
-  static getName() {
+  getName() {
     return this.name;
   }
 
-  static addTask(task) {
+  getTasks() {
+    return this.tasks;
+  }
+
+  addTask(task) {
     this.tasks.push({
       title: task.title,
       priority: task.priority,
@@ -21,7 +25,8 @@ export default class Project {
     });
   }
 
-  static getTasks() {
-    return this.tasks;
+  removeTask(taskTitle) {
+    const index = this.getTasks().findIndex((task) => task.title === taskTitle);
+    this.getTasks().splice(index, 1);
   }
 }
