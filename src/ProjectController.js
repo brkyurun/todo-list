@@ -1,3 +1,5 @@
+import Task from "./TaskController";
+
 export default class Project {
   constructor(name) {
     this.name = name;
@@ -16,13 +18,14 @@ export default class Project {
     return this.tasks;
   }
 
-  addTask(task) {
-    this.tasks.push({
-      title: task.title,
-      priority: task.priority,
-      dueDate: task.dueDate,
-      details: task.details,
-    });
+  addTask(taskObject) {
+    const task = new Task(
+      taskObject.title,
+      taskObject.priority,
+      taskObject.dueDate,
+      taskObject.description
+    );
+    this.tasks.push(task);
   }
 
   removeTask(taskTitle) {

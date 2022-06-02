@@ -5,29 +5,25 @@ import UI from "./UI";
 UI.attachListeners();
 
 const testProject = new Project("Test");
-const testTask = new Task("Henlo 4", "low", "23/07/2022", "very secret stuff");
+const testTaskFirst = new Task("Title 1", "low", "2022-08-15", "Henlo 1");
 const testTaskSecond = new Task(
-  "Henlo 5",
-  "low",
-  "23/07/2023",
-  "very secret stuff"
+  "Title 2",
+  "medium",
+  "2021-09-28",
+  "Henlo 2 but with longer texts to measure the actions I need to take in order to fix the width and put a container so that it doesn't overflow from the design I made"
 );
-const testTaskThird = new Task(
-  "Henlo 6",
-  "low",
-  "23/07/2024",
-  "very secret stuff"
-);
+const testTaskThird = new Task("Title 3", "high", "2024-07-23", "Henlo 3");
 
-testProject.addTask(testTask);
+testProject.addTask(testTaskFirst);
 testProject.addTask(testTaskSecond);
 testProject.addTask(testTaskThird);
 console.log(testProject.getName());
 console.log(testProject.getTasks());
-UI.createTask(testTask);
+UI.createTask(testTaskFirst);
 UI.createTask(testTaskSecond);
 UI.createTask(testTaskThird);
 UI.createProject(testProject.getName());
+console.log(testProject.getTasks());
 
 // todos:
 // - create new ui components to create projects and tasks

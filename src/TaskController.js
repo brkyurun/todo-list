@@ -4,6 +4,7 @@ export default class Task {
     this.priority = priority;
     this.dueDate = dueDate;
     this.description = description;
+    this.isDone = false;
   }
 
   getTitle() {
@@ -36,5 +37,17 @@ export default class Task {
 
   setDetails(taskDetails) {
     this.details = taskDetails;
+  }
+
+  getIsDone() {
+    return this.isDone;
+  }
+
+  toggleIsDone() {
+    if (this.isDone === false) {
+      this.isDone = true;
+    } else if (this.isDone === true) {
+      this.isDone = false;
+    }
   }
 }

@@ -1,3 +1,6 @@
+import Project from "./ProjectController";
+import Task from "./TaskController";
+
 export default class UI {
   static attachListeners() {
     const openModal = document.querySelector("#open-modal");
@@ -18,6 +21,7 @@ export default class UI {
 
     addTaskButton.addEventListener("click", () => {
       const values = UI.getModalValues();
+      console.log(UI.getModalValues());
       UI.createTask(values);
       UI.clearFormFields();
       modal.classList.remove("show");
@@ -61,6 +65,13 @@ export default class UI {
     const taskList = document.querySelector(".task-list");
     const taskItem = document.createElement("div");
     const removeTaskButton = document.createElement("button");
+    const taskTexts = document.createElement("div");
+    const taskTitle = document.createElement("h3");
+    const taskDescription = document.createElement("p");
+    const taskDueDateDiv = document.createElement("div");
+    const taskDueDate = document.createElement("input");
+    const completionCheck = document.createElement("div");
+    const checkboxInput = document.createElement("input");
 
     taskItem.classList.add("task-item");
 
@@ -68,21 +79,49 @@ export default class UI {
     removeTaskButton.classList.add("remove-task");
     removeTaskButton.textContent = "-";
 
-    taskItem.innerHTML = `
-      <div class="task-texts">
-        <h3>${taskObject.title}</h3>
-        <p>${taskObject.description}</p>
-      </div>
-      <div class="due-date">
-        <input type="date" class="time-input">
-      </div>
-      <div class="completion-check">
-        <input type="checkbox" class="checkbox-input">
-      </div>
-    `;
+    taskTexts.classList.add("task-texts");
+    switch (taskObject.priority) {
+      case "low":
+        taskTexts.classList.add("low");
+        break;
+      case "medium":
+        taskTexts.classList.add("medium");
+        break;
+      case "high":
+        taskTexts.classList.add("high");
+        break;
+    }
+
+    taskTitle.textContent = taskObject.title;
+    taskDescription.textContent = taskObject.description;
+
+    taskTexts.appendChild(taskTitle);
+    taskTexts.appendChild(taskDescription);
+
+    taskDueDateDiv.classList.add("due-date");
+    taskDueDate.type = "date";
+    taskDueDate.classList.add("time-input");
+    taskDueDate.value = taskObject.dueDate;
+    taskDueDateDiv.appendChild(taskDueDate);
+
+    completionCheck.classList.add("completion-check");
+    checkboxInput.type = "checkbox";
+    checkboxInput.classList.add("checkbox-input");
+
+    checkboxInput.addEventListener("change", () => {
+      if (checkboxInput.checked === true) {
+        taskItem.classList.add("completed");
+      } else if (checkboxInput.checked === false) {
+        taskItem.classList.remove("completed");
+      }
+    });
+    completionCheck.appendChild(checkboxInput);
 
     removeTaskButton.addEventListener("click", UI.removeTask);
-    taskItem.insertBefore(removeTaskButton, taskItem.firstChild);
+    taskItem.appendChild(removeTaskButton);
+    taskItem.appendChild(taskTexts);
+    taskItem.appendChild(taskDueDateDiv);
+    taskItem.appendChild(completionCheck);
 
     taskList.appendChild(taskItem);
   }
