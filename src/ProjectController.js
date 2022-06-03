@@ -1,8 +1,7 @@
-import Task from "./TaskController";
-
 export default class Project {
   constructor(name) {
     this.name = name;
+    this.id = Date.now().toString();
     this.tasks = [];
   }
 
@@ -14,22 +13,27 @@ export default class Project {
     return this.name;
   }
 
+  setTasks(tasks) {
+    this.tasks = tasks;
+  }
+
   getTasks() {
     return this.tasks;
   }
 
-  addTask(taskObject) {
-    const task = new Task(
-      taskObject.title,
-      taskObject.priority,
-      taskObject.dueDate,
-      taskObject.description
-    );
-    this.tasks.push(task);
+  getTask(taskName) {
+    return this.tasks.find((task) => task.getName() === taskName);
   }
 
-  removeTask(taskTitle) {
-    const index = this.getTasks().findIndex((task) => task.title === taskTitle);
-    this.getTasks().splice(index, 1);
+  contains(taskName) {
+    return this.tasks.some((task) => task.getName() === taskName);
+  }
+
+  addTask(taskObject) {
+    this.tasks.push(taskObject);
+  }
+
+  deleteTask(taskName) {
+    this.tasks = this.tasks.filter((task) => task.name !== taskName);
   }
 }

@@ -6,6 +6,8 @@
 
   --main-text: #111827;
   --sidebar-bg: #e2e8f0;
+  --add-project-bg: #cbd5e1;
+  --add-project-color: #64748b;
 
   --modal-bg: rgba(248, 250, 252, 0.8);
   --modal-title: #34d399;
@@ -177,6 +179,7 @@ button.open-modal:hover {
 }
 /* sidebar styles */
 .sidebar {
+  position: relative;
   min-height: calc(100vh - 70px);
   min-width: 240px;
   width: 20%;
@@ -189,7 +192,6 @@ button.open-modal:hover {
 }
 
 .projects-container {
-  /* font-size: 1.1rem; */
   margin-top: 20px;
 }
 
@@ -202,7 +204,6 @@ button.open-modal:hover {
   content: ">";
   position: absolute;
   left: 13px;
-  /* font-size: 1.1rem; */
 }
 
 .sidebar .project:not(:last-child) {
@@ -233,6 +234,58 @@ button.open-modal:hover {
 .remove-project:hover {
   transform: scale(1.15);
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.add-project-container {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.add-project {
+  display: grid;
+  place-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--add-project-bg);
+  color: var(--add-project-color);
+  font-size: 1.8rem;
+  font-weight: bolder;
+  transition: all ease-out 0.2s;
+}
+
+.add-project:hover {
+  transform: scale(1.15);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.add-project-input {
+  height: 2rem;
+  width: 65%;
+  padding: 0px 3px;
+  margin-right: 25px;
+  opacity: 0;
+  pointer-events: none;
+  background-color: var(--sidebar-bg);
+  border: none;
+  outline: none;
+  border-bottom: 3px solid var(--add-project-color);
+  transition: opacity ease-out 0.25s;
+}
+
+.add-project-input.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.add-project:focus,
+.add-project-input:focus {
+  outline: none;
 }
 
 /* task content styles  */
