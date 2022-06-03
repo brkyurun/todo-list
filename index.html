@@ -20,24 +20,16 @@
     <main class="main">
       <aside class="sidebar">
         <h2>Projects</h2>
-        <div class="projects-container" id="projects-container">
-          <div class="project selected">
-            <p class="project-name">Adelaide Ltd. & Co.</p>
-            <button type="button" class="remove-project">-</button>
-          </div>
-          <div class="project">
-            <p class="project-name">Lemon Squeeze</p>
-            <button type="button" class="remove-project">-</button>
-          </div>
-          <div class="project">
-            <p class="project-name">Barbecue Party</p>
-            <button type="button" class="remove-project">-</button>
-          </div>
-          <div class="project">
-            <p class="project-name">Work from Home</p>
-            <button type="button" class="remove-project">-</button>
-          </div>
-        </div>
+        <div class="projects-container" id="projects-container"></div>
+        <form class="add-project-container">
+          <button type="button" id="add-project" class="add-project">+</button>
+          <input
+            type="text"
+            id="add-project-input"
+            class="add-project-input"
+            placeholder="Project name..."
+          />
+        </form>
       </aside>
       <section class="task-container">
         <h2>Tasks</h2>
