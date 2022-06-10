@@ -359,6 +359,11 @@ button.open-modal:hover {
   flex: 1;
 }
 
+#task-description {
+  overflow: scroll;
+  max-height: 100px;
+}
+
 .task-texts:where(.low) > h3::after {
   content: "< ! >";
   font-weight: lighter;
