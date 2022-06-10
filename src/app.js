@@ -6,4 +6,3 @@ const testTask = {
   description: "some unintelligible shit, brah",
 };
 UI.loadApp();
-UI.createTask(testTask);
